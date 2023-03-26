@@ -24,13 +24,13 @@ resource "aws_ecs_task_definition" "td" {
   container_definitions = jsonencode([
     {
       name         = "app"
-      image        = ".dkr.ecr.us-east-2.amazonaws.com/app_repo"
+      image        = "**.dkr.ecr.us-east-2.amazonaws.com/app_repo"
       cpu          = 256
       memory       = 512
       essential    = true
       portMappings = [
         {
-          containerPort = 80
+          containerPort = 3000
           hostPort      = 80
         }
       ]
@@ -42,6 +42,6 @@ resource "aws_ecs_task_definition" "td" {
   cpu                = "256"
   memory             = "512"
   network_mode       = "awsvpc"
-  task_role_arn      = "arn:aws:iam::209731644578:role/ecsTaskExecutionRole"
-  execution_role_arn = "arn:aws:iam::209731644578:role/ecsTaskExecutionRole"
+  task_role_arn      = "arn:aws:iam::**:role/ecsTaskExecutionRole"
+  execution_role_arn = "arn:aws:iam::**:role/ecsTaskExecutionRole"
 }
